@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../i18n';
 import { getAllBlogSlugs, getBlogPost, getRelatedBlogPosts } from '../../data/blog';
 import { pageTitle } from '../../config/seo';
+import { getPageSeoEntry } from '../../config/pageSeo';
 import {
   articleSchema,
   breadcrumbSchema,
@@ -36,6 +37,9 @@ if (!post) {
 }
 
 const postPath = `/blog/${post.slug}/`;
+const seoOverride = getPageSeoEntry(postPath);
+const layoutTitle = seoOverride?.title ?? pageTitle(post.title);
+const layoutDescription = seoOverride?.description ?? post.desc;
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Blog', path: '/blog/' },
@@ -68,8 +72,8 @@ const published = parseBlogDate(post.date);
 ---
 
 <BaseLayout
-  title={pageTitle(post.title)}
-  description={post.desc}
+  title={layoutTitle}
+  description={layoutDescription}
   ogType="article"
   ogImage={post.image}
   ogImageAlt={post.title}

@@ -1,8 +1,14 @@
 import { t } from '../i18n';
-import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
+import { SITE_DOMAIN as INDEXNOW_HOST_NAME, SITE_URL } from './site';
 import { getPageSeoEntry } from './pageSeo';
 
-export const SITE_ORIGIN = `https://${t.site.domain}`;
+function resolveSiteOrigin(): string {
+  const fromEnv = import.meta.env.PUBLIC_SITE_URL as string | undefined;
+  if (fromEnv?.trim()) return fromEnv.replace(/\/$/, '');
+  return SITE_URL;
+}
+
+export const SITE_ORIGIN = resolveSiteOrigin();
 
 export const DEFAULT_OG_IMAGE = '/images/gameplay/aion-2-visuals.png';
 

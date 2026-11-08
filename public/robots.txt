@@ -3,6 +3,4 @@ Allow: /
 
 Disallow: /go/
 
-Sitemap: https://aion-cheats.com/sitemap.xml
-
-# RSS: https://aion-cheats.com/rss.xml
+Sitemap: /sitemap.xml

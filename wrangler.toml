@@ -4,7 +4,7 @@ compatibility_date = "2024-11-08"
 
 # Runs automatically before `wrangler deploy` (Cloudflare CI often only invokes deploy).
 [build]
-command = "npm run build"
+command = "PUBLIC_SITE_URL=https://aion-cheats--com.tazeenrooziroti.workers.dev npm run build"
 
 [assets]
 directory = "./dist"

@@ -38,10 +38,12 @@ function formatUrlset(xml) {
 const formatted = formatUrlset(raw);
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 
+const siteOrigin = (process.env.PUBLIC_SITE_URL || 'https://aion-cheats.com').replace(/\/$/, '');
+
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://aion-cheats.com/sitemap.xml</loc>
+    <loc>${siteOrigin}/sitemap.xml</loc>
     <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
   </sitemap>
 </sitemapindex>
@@ -49,4 +51,13 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 
-console.log(`Sitemap finalized: ${urlCount} URLs → dist/sitemap.xml`);
+const robotsTxt = `User-agent: *
+Allow: /
+
+Disallow: /go/
+
+Sitemap: ${siteOrigin}/sitemap.xml
+`;
+fs.writeFileSync(path.join(dist, 'robots.txt'), robotsTxt, 'utf8');
+
+console.log(`Sitemap finalized: ${urlCount} URLs → dist/sitemap.xml (${siteOrigin})`);

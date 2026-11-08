@@ -365,9 +365,9 @@ export const heroSlides = slide('visuals', 'world', 'aim', 'radar', 'flight', 'm
 
 export const productHub = {
   path: productBase,
-  title: t.products.title,
+  title: 'AION 2 Cheats & Products',
   subtitle: t.products.subtitle,
   description:
-    'AION 2 Elite cheats with soft aim, ESP, 2D radar, auto loot, and Cloud DMA deployment notes for Steam and PURPLE on PC.',
+    'Elite PC suite with soft aim, ESP, 2D radar, auto loot, and Cloud DMA deployment notes for Steam and PURPLE.',
   buyUrl: checkoutPath('aion2'),
 };

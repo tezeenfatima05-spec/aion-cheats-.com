@@ -54,7 +54,7 @@ export const blogPosts: BlogPostFull[] = [
   },
   {
     tag: "Setup",
-    title: "AION 2 soft aim setup for PC",
+    title: "AION 2 soft aim setup for PC | Cheats",
     slug: "aion-2-soft-aim-setup",
     image: "/images/gameplay/aion-2-aimbot.png",
     desc: "Tune aim key, FOV, smoothing, bones, and visibility checks before Elyos vs Asmodian fights.",
@@ -104,7 +104,7 @@ export const blogPosts: BlogPostFull[] = [
   },
   {
     tag: "Guides",
-    title: "AION 2 player ESP and wallhack layout",
+    title: "AION 2 player ESP and wallhack layout | Cheats",
     slug: "aion-2-player-esp-guide",
     image: "/images/gameplay/aion-2-visuals.png",
     desc: "Box styles, skeleton, faction colors, and distance caps that stay readable in aerial combat.",

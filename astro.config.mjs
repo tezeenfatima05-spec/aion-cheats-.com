@@ -3,8 +3,10 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
+const siteUrl = (process.env.PUBLIC_SITE_URL || 'https://aion-cheats.com').replace(/\/$/, '');
+
 export default defineConfig({
-  site: 'https://aion-cheats.com',
+  site: siteUrl,
   trailingSlash: 'always',
   redirects: {
     '/cheats/': '/products/aion-2-cheats/',

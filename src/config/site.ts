@@ -1,8 +1,12 @@
 /** Central site / game configuration — edit here for future template conversions. */
 export const GAME_NAME = 'AION CHEATS';
 export const PRODUCT_NAME = 'AION 2';
-export const SITE_DOMAIN = 'aion-cheats.com';
-export const SITE_URL = `https://${SITE_DOMAIN}`;
+export const SITE_DOMAIN =
+  (import.meta.env.PUBLIC_SITE_DOMAIN as string | undefined)?.trim() || 'aion-cheats.com';
+
+export const SITE_URL =
+  (import.meta.env.PUBLIC_SITE_URL as string | undefined)?.replace(/\/$/, '') ||
+  `https://${SITE_DOMAIN}`;
 export const PRODUCT_BASE = '/products/aion-2-cheats/';
 export const PRIMARY_KEYWORD = 'AION 2 cheats';
 export const TITLE_PREFIX = 'AION 2 Cheats — Aimbot, ESP, Radar & Auto Loot';
