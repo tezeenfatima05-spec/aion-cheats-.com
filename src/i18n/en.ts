@@ -309,7 +309,13 @@ export const en: Translations = {
       { icon: 'users', title: 'Chat before checkout', desc: 'Ask about Elite modules and Cloud DMA pairing.', linkLabel: 'Start checkout', href: PRIMARY_CHECKOUT_PATH },
       { icon: 'headphones', title: 'Chat to support', desc: "We're here for loader and configuration issues.", linkLabel: 'support@aion-cheats.com', href: 'mailto:support@aion-cheats.com' },
       { icon: 'navFaq', title: 'Read the FAQ', desc: 'Compatibility, risk, and setup—before you buy.', linkLabel: 'View all FAQ', href: '/faq/' },
-      { icon: 'clock', title: 'Live operators', desc: 'Staff on shift around the clock.', linkLabel: 'Open contact page', href: '/support/' },
+      {
+        icon: 'clock',
+        title: 'Live operators',
+        desc: 'Staff on shift around the clock.',
+        linkLabel: 'Join Discord',
+        href: 'https://discord.com/invite/wmFY3xVtwm',
+      },
     ],
     ticketTitle: 'Include in your ticket',
     ticketItems: [

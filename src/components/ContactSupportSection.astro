@@ -55,6 +55,9 @@ const c = t.support;
                   variant="outline"
                   size="sm"
                   class="w-full"
+                  {...(channel.href.startsWith('http')
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
                 >
                   {channel.linkLabel}
                   <Icon name="arrowRight" size={17} />
