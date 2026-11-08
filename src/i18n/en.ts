@@ -24,7 +24,7 @@ export const en: Translations = {
     status: 'AION 2 — patch build online',
     eyebrow: 'Premium PC provider',
     titleLine1: 'AION 2',
-    titleLine2: 'Cheats for PC — Aimbot, ESP, Soft Aim, Auto Loot & Radar',
+    titleLine2: '',
     subtitle:
       'Player ESP, soft aim, 2D radar, auto loot, and Kinah farming tools for Steam and PURPLE (Global PC)—with stream-proof overlays and saveable configs.',
     ctaPrimary: 'View products',
