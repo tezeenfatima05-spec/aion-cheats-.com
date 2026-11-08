@@ -63,11 +63,21 @@ async function loadProcessedSquare() {
     .toBuffer();
 }
 
+async function writeSvgWithPng(viewBoxSize, pngBuffer, outPath) {
+  const b64 = pngBuffer.toString('base64');
+  const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${viewBoxSize} ${viewBoxSize}" role="img" aria-label="AION 2">
+  <image href="data:image/png;base64,${b64}" width="${viewBoxSize}" height="${viewBoxSize}"/>
+</svg>`;
+  fs.writeFileSync(outPath, svg);
+}
+
 async function writeFavicons(masterPng) {
   const sizes = [
     { name: 'apple-touch-icon.png', size: 180 },
     { name: 'favicon-32.png', size: 32 },
     { name: 'favicon-16.png', size: 16 },
+    { name: 'logo.png', size: 64 },
   ];
 
   for (const { name, size } of sizes) {
@@ -77,12 +87,10 @@ async function writeFavicons(masterPng) {
   await sharp(masterPng).resize(32, 32).png().toFile(path.join(publicDir, 'favicon.ico'));
 
   const icon32 = await sharp(masterPng).resize(32, 32).png().toBuffer();
-  const b64 = icon32.toString('base64');
-  const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <image href="data:image/png;base64,${b64}" width="32" height="32"/>
-</svg>`;
-  fs.writeFileSync(path.join(publicDir, 'favicon.svg'), svg);
+  await writeSvgWithPng(32, icon32, path.join(publicDir, 'favicon.svg'));
+
+  const logo64 = await sharp(masterPng).resize(64, 64).png().toBuffer();
+  await writeSvgWithPng(64, logo64, path.join(publicDir, 'logo.svg'));
 }
 
 const master = await loadProcessedSquare();

@@ -14,7 +14,7 @@ export const SUPPORT_EMAIL = `support@${SITE_DOMAIN}`;
 export const CTA_URL = 'https://zadeyo.com/go/TAZEEN?to=%2Fproducts%2Faion-2';
 
 export const ASSETS = {
-  logo: '/logo.svg',
+  logo: '/logo.png',
   heroPoster: '/images/gameplay/aion-2-visuals.png',
   ogImage: '/images/gameplay/aion-2-visuals.png',
   screenshots: [
