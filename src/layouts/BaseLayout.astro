@@ -118,6 +118,21 @@ const robotsContent = noindex
     {TWITTER_SITE && <meta name="twitter:site" content={TWITTER_SITE} />}
     {TWITTER_CREATOR && <meta name="twitter:creator" content={TWITTER_CREATOR} />}
 
+    <ul class="sr-only" aria-label="Share this page">
+      <li>
+        <a
+          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(canonical)}&text=${encodeURIComponent(title)}`}
+        >
+          Share on X
+        </a>
+      </li>
+      <li>
+        <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonical)}`}>
+          Share on Facebook
+        </a>
+      </li>
+    </ul>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

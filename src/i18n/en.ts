@@ -8,9 +8,9 @@ export const en: Translations = {
   site: {
     name: 'AION Cheats',
     domain: 'aion-cheats.com',
-    title: 'AION 2 Cheats — Aimbot, ESP, Radar & Auto Loot | AION Cheats',
+    title: 'Aion 2 Cheats For Pc Aimbot Esp Auto Loot Radar – Radar',
     description:
-      'Explore AION 2 cheats for PC featuring player ESP, soft aim, 2D radar, auto loot, Kinah farming, gathering ESP, and customizable mod menu features at AION Cheats.',
+      'Aion 2 Cheats For Pc Aimbot Esp Auto Loot Radar: Explore AION 2 on PC with player ESP, soft aim, 2D radar, auto loot, Kinah farming, and gathering ESP.',
     discord: PRIMARY_CHECKOUT_PATH,
   },
   nav: [
@@ -24,7 +24,7 @@ export const en: Translations = {
     status: 'AION 2 — patch build online',
     eyebrow: 'Premium PC provider',
     titleLine1: 'AION 2',
-    titleLine2: 'Cheats for PC — Aimbot, ESP, Auto Loot & Radar',
+    titleLine2: 'Cheats for PC — Aimbot, ESP, Soft Aim, Auto Loot & Radar',
     subtitle:
       'Player ESP, soft aim, 2D radar, auto loot, and Kinah farming tools for Steam and PURPLE (Global PC)—with stream-proof overlays and saveable configs.',
     ctaPrimary: 'View products',
@@ -355,26 +355,35 @@ export const en: Translations = {
   },
   legalPages: {
     about: {
-      title: 'About AION Cheats',
-      description: 'AION Cheats publishes AION 2 feature guides, product pages, and status notes at aion-cheats.com.',
+      title: 'About AION Cheats – guides, product pages',
+      description: 'PC resource for AION 2 module guides, Elite product pages, patch status notes, and support paths at aion-cheats.com.',
       sections: [
         {
           heading: 'Who we are',
           paragraphs: [
-            'AION Cheats is a PC resource for players exploring soft aim, player ESP, 2D radar, auto loot, and gathering workflows in AION 2.',
-            'Product names are used for identification only.',
+            'We publish practical setup notes for players exploring soft aim, player ESP, 2D radar, auto loot, and gathering workflows in AION 2 on Steam and PURPLE clients.',
+            'Product names are used for identification only. Trademarks belong to their respective owners.',
           ],
         },
         {
           heading: 'What we publish',
           paragraphs: [
-            'We document Elite modules, Cloud DMA deployment notes, and configuration guides. Content updates when client patches land or loader modules change.',
-            'Check the homepage status banner before every session.',
+            'Documentation covers Elite modules, Cloud DMA deployment notes, and step-by-step configuration guides. Articles refresh when client patches land or loader modules change.',
+            'Check the homepage status banner before every session so you load a build matched to the current client version.',
+          ],
+        },
+        {
+          heading: 'Finding pages',
+          paragraphs: [
+            'The <a href="/blog/">guides archive</a> lists setup walkthroughs by topic. Product tiers and utilities sit under <a href="/products/aion-2-cheats/">AION 2 products</a>.',
+            'Every public URL is listed in the <a href="/sitemap.xml">XML sitemap</a> for crawlers—use it if you arrived from search and need a specific guide or legal page.',
           ],
         },
         {
           heading: 'Support',
-          paragraphs: ['Questions about compatibility, loader errors, or checkout go through email and the support page. Include your order email and Windows version.'],
+          paragraphs: [
+            'Questions about compatibility, loader errors, or checkout go through email and the support page. Include your order email and Windows version so operators can reproduce the issue.',
+          ],
         },
       ],
     },

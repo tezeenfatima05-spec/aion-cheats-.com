@@ -9,9 +9,9 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Radar – AION 2 Cheats, ESP, Soft Aim & Auto Loot',
+    title: 'Aion 2 Cheats For Pc Aimbot Esp Auto Loot Radar – Radar',
     description:
-      'Explore AION 2 on PC with player ESP, soft aim, 2D radar, auto loot, Kinah farming, and gathering ESP—configurable mod menu at aion-cheats.com.',
+      'Aion 2 Cheats For Pc Aimbot Esp Auto Loot Radar: Explore AION 2 on PC with player ESP, soft aim, 2D radar, auto loot, Kinah farming, and gathering ESP.',
   },
   '/products/aion-2-cheats/': {
     title: 'AION 2 Cheats – ESP, Soft Aim & Flight Markers',
@@ -34,22 +34,27 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Hosted DMA paths, compatibility scans, and operator notes for pairing Cloud DMA with AION 2 external overlays.',
   },
   '/blog/': {
-    title: 'Guides – AION 2 setup, ESP & radar tips | Cheats',
+    title: 'Guides – AION 2 setup, ESP, radar tips & cheats',
     description:
-      'Setup guides for soft aim, player ESP, 2D radar, auto loot, Kinah farming, and patch-day checks for AION 2 on PC.',
+      'Setup guides for soft aim, player ESP, 2D radar, auto loot, Kinah farming, and patch-day checks for AION 2 on PC—updated after patches.',
   },
   '/blog/aion-2-cheats-features-guide/': {
-    title: 'AION 2 features: ESP, soft aim, radar & auto loot',
+    title: 'Aion 2 – Walkthrough of Elite modules, ESP & soft aim',
     description:
-      'AION 2: Walkthrough of Elite modules—player ESP, soft aim, 2D radar, gathering ESP, and stream-proof overlays for PC.',
+      'AION 2 walkthrough: Elite modules with player ESP, soft aim, 2D radar, gathering ESP, stream-proof overlays, and config tips for PC clients.',
+  },
+  '/blog/aion-2-2d-radar-config/': {
+    title: 'Range and zoom – AION 2 2D radar, Abyss PvP | Cheats',
+    description:
+      'Range and zoom: Radar markers, boss blips, and faction coding for open world and Abyss PvP. AION 2 2D radar setup guide for PC, 6 min read.',
   },
   '/blog/aion-2-soft-aim-setup/': {
-    title: 'Aim – AION 2 soft aim setup for PC | Cheats',
+    title: 'Aim – visibility checks before Elyos vs Asmodian | Cheats',
     description:
-      'Tune aim key, FOV, smoothing, bones, and visibility checks before Elyos vs Asmodian fights. Step-by-step soft aim setup for PC.',
+      'Aim: Tune key, FOV, smoothing, bones, and visibility checks before Elyos vs Asmodian fights. Step-by-step AION 2 soft setup for PC.',
   },
   '/blog/aion-2-player-esp-guide/': {
-    title: 'Player ESP – AION 2 wallhack layout | Cheats',
+    title: 'Player Esp – AION 2 wallhack layout & aerial caps',
     description:
       'Player ESP: box styles, skeleton, faction colors, and distance caps that stay readable in aerial combat and open-world PvP.',
   },
@@ -59,7 +64,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Forum for ESP tuning, radar range, PvP setups, gathering filters, and patch notes with other AION 2 operators on PC.',
   },
   '/faq/': {
-    title: 'FAQ – AION 2 checkout, setup & modules | Cheats',
+    title: 'FAQ – AION 2 checkout, setup, modules & cheats',
     description:
       'FAQ: Answers on Steam and PURPLE support, feature modules, checkout, stream-proof mode, and blog guides at aion-cheats.com.',
   },
@@ -73,9 +78,9 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Privacy: How aion-cheats.com uses analytics, cookies, and contact data when you browse or request support. Read our full policy.',
   },
   '/about/': {
-    title: 'About AION Cheats – PC guides & product pages',
+    title: 'Aion Cheats – PC guides, product pages & site info',
     description:
-      'About AION Cheats: feature guides, Elite product pages, Cloud DMA notes, and patch status for AION 2 on PC at aion-cheats.com.',
+      'About this PC resource: Elite module guides, product pages, patch status, and support paths for AION 2 players at aion-cheats.com.',
   },
   '/support/': {
     title: 'Support | AION Cheats',

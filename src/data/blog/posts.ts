@@ -154,10 +154,10 @@ export const blogPosts: BlogPostFull[] = [
   },
   {
     tag: "Setup",
-    title: "AION 2 2D radar range and zoom",
+    title: "AION 2 2D radar range and zoom | Cheats",
     slug: "aion-2-2d-radar-config",
     image: "/images/gameplay/aion-2-radar.png",
-    desc: "Radar markers, boss blips, and faction coding for open world and Abyss PvP.",
+    desc: "Range and zoom: Radar markers, boss blips, and faction coding for open world and Abyss PvP. AION 2 2D radar setup guide for PC, 6 min read.",
     date: "Oct 29, 2026",
     readTime: "6 min read",
     body: [
@@ -204,7 +204,7 @@ export const blogPosts: BlogPostFull[] = [
   },
   {
     tag: "Guides",
-    title: "AION 2 auto loot and Kinah farming routes",
+    title: "AION 2 auto loot and Kinah farming routes | Cheats",
     slug: "aion-2-auto-loot-kinah-farming",
     image: "/images/blog/aion-2-kinah-farming-guide.png",
     desc: "Loot ESP, pickup filters, and PvE loops that pair with gathering node ESP.",
@@ -404,7 +404,7 @@ export const blogPosts: BlogPostFull[] = [
   },
   {
     tag: "Setup",
-    title: "AION 2 Cloud DMA compatibility checklist",
+    title: "AION 2 Cloud DMA compatibility checklist | Cheats",
     slug: "aion-2-cloud-dma-setup",
     image: "/images/gameplay/aion-2-misc.png",
     desc: "Pair hosted DMA with Elite overlays—hardware scan and latency checks.",

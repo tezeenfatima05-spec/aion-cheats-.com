@@ -35,7 +35,7 @@ const { title, description, breadcrumbLabel, sections } = Astro.props;
         <section class="mt-8">
           <h2>{section.heading}</h2>
           {section.paragraphs.map((paragraph) => (
-            <p>{paragraph}</p>
+            <p set:html={paragraph} />
           ))}
         </section>
       ))}
