@@ -1,6 +1,10 @@
-# Cloudflare Workers static assets — deploy after `npm run build` (output in dist/).
+# Cloudflare Workers static assets (output in dist/).
 name = "aion-cheats-com"
 compatibility_date = "2024-11-08"
+
+# Runs automatically before `wrangler deploy` (Cloudflare CI often only invokes deploy).
+[build]
+command = "npm run build"
 
 [assets]
 directory = "./dist"

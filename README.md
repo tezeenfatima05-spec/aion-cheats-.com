@@ -35,6 +35,6 @@ npm run deploy:cloudflare
 | Setting | Value |
 | -------- | ----- |
 | Build command | `npm ci && npm run build` |
-| Deploy command | `npx wrangler deploy` |
+| Deploy command | `npx wrangler deploy` (Wrangler runs `npm run build` from `wrangler.toml` first) |
 
 Build output directory for **Pages** (if you switch away from Workers): `dist`
