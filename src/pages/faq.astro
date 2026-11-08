@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAllFaqs } from '../data/faq';
+import { resolvePageSeo } from '../config/seo';
+import { breadcrumbSchema, faqPageSchema, webPageSchema } from '../utils/schema';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SiteFaqSection from '../components/SiteFaqSection.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const seo = resolvePageSeo('/faq/');
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'FAQ', path: '/faq/' },
+];
+
+const faqs = getAllFaqs();
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  jsonLd={[
+    webPageSchema({
+      name: 'FAQ — AION 2 Cheats & Products',
+      description:
+        'Answers about AION 2 Elite features, ESP, radar, Cloud DMA utility, blog guides and checkout at aion-cheats.com.',
+      url: '/faq/',
+    }),
+    faqPageSchema(faqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') }))),
+    breadcrumbSchema(breadcrumbs),
+  ]}
+>
+  <section class="border-b border-border bg-muted/10 py-8 md:py-12">
+    <div class="mx-auto max-w-6xl px-5">
+      <Breadcrumbs items={breadcrumbs} />
+      <div class="mt-6">
+        <SectionHeader
+          eyebrow="Help center"
+          title="FAQ for cheats, products & guides"
+          desc="Everything about Lite, Pro, Elite tiers, utilities, safety and blog topics—in one place."
+          titleId="faq-page-title"
+        />
+      </div>
+    </div>
+  </section>
+
+  <SiteFaqSection items={faqs} variant="full" titleId="faq-page-list" />
+</BaseLayout>

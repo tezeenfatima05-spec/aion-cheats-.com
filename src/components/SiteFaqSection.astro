@@ -1,0 +1,46 @@
+---
+import type { SiteFaqItem, FaqTopic } from '../data/faq';
+import FaqSection from './FaqSection.astro';
+import {
+  SITE_FAQ_FILTER_TOPICS,
+  SITE_FAQ_SECTION_COPY,
+  CONTEXTUAL_FAQ_SECTION_COPY,
+  faqFilterTopicsForItems,
+} from '../data/faq';
+
+interface Props {
+  items: SiteFaqItem[];
+  id?: string;
+  titleId?: string;
+  class?: string;
+  /** Full /faq/ experience — all topics chip bar */
+  variant?: 'full' | 'contextual';
+  filterTopics?: FaqTopic[];
+}
+
+const {
+  items,
+  id,
+  titleId = 'faq-heading',
+  class: className,
+  variant = 'contextual',
+  filterTopics: filterTopicsProp,
+} = Astro.props;
+
+const copy = variant === 'full' ? SITE_FAQ_SECTION_COPY : CONTEXTUAL_FAQ_SECTION_COPY;
+const filterTopics =
+  filterTopicsProp ?? (variant === 'full' ? SITE_FAQ_FILTER_TOPICS : faqFilterTopicsForItems(items));
+const showFilters = filterTopics.length > 1;
+---
+
+<FaqSection
+  id={id}
+  items={items}
+  eyebrow={copy.eyebrow}
+  title={copy.title}
+  subtitle={copy.subtitle}
+  titleId={titleId}
+  showFilters={showFilters}
+  filterTopics={filterTopics}
+  class={className}
+/>

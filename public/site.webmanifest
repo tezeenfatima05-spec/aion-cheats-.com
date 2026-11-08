@@ -1,0 +1,23 @@
+{
+  "name": "DotaCheats",
+  "short_name": "DotaCheats",
+  "description": "Dota 2 cheats with scripts, map hack, zoom hack and skin changer for PC.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0d10",
+  "theme_color": "#7f3dee",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}
