@@ -12,6 +12,7 @@
     "start": "node scripts/serve.mjs",
     "astro": "astro",
     "optimize:images": "node scripts/optimize-images.mjs",
+    "favicon:aion2": "node scripts/generate-aion2-favicon.mjs",
     "deploy:cloudflare": "npm run build && wrangler deploy"
   },
   "dependencies": {
