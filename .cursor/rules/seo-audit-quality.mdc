@@ -1,0 +1,30 @@
+---
+description: SEO audits — fix scores without damaging visible content
+globs:
+  - src/config/pageSeo.ts
+  - src/config/seo.ts
+  - src/layouts/BaseLayout.astro
+  - public/_headers
+  - wrangler.toml
+alwaysApply: true
+---
+
+# SEO audits: quality first
+
+When fixing SEO audit scores for this site:
+
+## Do change (invisible / head only)
+
+- `<title>` and `meta description` via `src/config/pageSeo.ts` or layout props
+- Canonical, hreflang, JSON-LD, sitemap, robots
+- Caching headers, build/deploy config, performance (defer, compress) without layout changes
+- Default blog `<title>` suffix (`pageTitle` uses `| Cheats`, not `| AION Cheats`)
+
+## Do NOT change unless the user explicitly asks
+
+- Visible **H1, H2, H3**, hero copy, section headers
+- **Blog post titles, body, cards**, forum copy
+- **Nav, footer, and i18n labels** (structure or wording)
+- UI, layout, CSS, or components for audit “paste” text
+
+Audit tools may flag “title words missing from H1”—**do not** rewrite headings to match; keep on-page quality and only tune title/meta.

@@ -50,7 +50,8 @@ export function resolvePageSeo(pathname: string): { title: string; description: 
   return { title: t.site.title, description: t.site.description };
 }
 
-export function pageTitle(keyword: string, brand = t.site.name): string {
+/** Default `| Cheats` avoids repeating “AION” in `<title>` when H1 stays unchanged. */
+export function pageTitle(keyword: string, brand = 'Cheats'): string {
   const suffix = ` | ${brand}`;
   const max = 60;
   if (`${keyword}${suffix}`.length <= max) return `${keyword}${suffix}`;
