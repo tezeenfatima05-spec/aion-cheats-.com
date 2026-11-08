@@ -18,3 +18,23 @@ npm run preview
 ## Checkout
 
 Commercial CTAs use internal `/go/aion-2/` → `https://zadeyo.com/go/TAZEEN?to=%2Fproducts%2Faion-2`
+
+## Cloudflare deploy
+
+Wrangler needs a built `dist/` folder. Do **not** run `wrangler deploy` alone.
+
+**Recommended (one command):**
+
+```bash
+npm ci
+npm run deploy:cloudflare
+```
+
+**Or in the Cloudflare build UI:**
+
+| Setting | Value |
+| -------- | ----- |
+| Build command | `npm ci && npm run build` |
+| Deploy command | `npx wrangler deploy` |
+
+Build output directory for **Pages** (if you switch away from Workers): `dist`
