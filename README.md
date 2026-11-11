@@ -39,4 +39,4 @@ npm run deploy:cloudflare
 
 Build output directory for **Pages** (if you switch away from Workers): `dist`
 
-**Custom domain:** `wrangler.toml` attaches `aion-cheats.com/*` via zone routes. If deploy logs show trigger errors, open **Workers → aion-cheats--com → Custom domains** and add `aion-cheats.com`, then purge cache.
+**Domain:** This Worker deploys to `*.workers.dev` only. Attach `aion-cheats.com` in the dashboard (Pages or another service), not via `wrangler.toml` routes.

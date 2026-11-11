@@ -15,11 +15,4 @@ html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"
 run_worker_first = true
 
-# Zone routes (not custom_domain) — required on accounts with SSL for SaaS (API 10082).
-[[routes]]
-pattern = "aion-cheats.com/*"
-zone_name = "aion-cheats.com"
-
-[[routes]]
-pattern = "www.aion-cheats.com/*"
-zone_name = "aion-cheats.com"
+# No routes here — aion-cheats.com is not attached to this Worker (workers.dev preview only).
