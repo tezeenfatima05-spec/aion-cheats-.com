@@ -1,3 +1,7 @@
+# Single canonical sitemap (astro sitemap-0.xml is removed at build; avoid duplicate crawls)
+/sitemap-0.xml /sitemap.xml 301
+/sitemap-index.xml /sitemap.xml 301
+
 # Checkout (affiliate) — static hosting cannot use Astro middleware
 /go/aion-2 https://zadeyo.com/go/TAZEEN?to=%2Fproducts%2Faion-2 302
 /go/aion-2/ https://zadeyo.com/go/TAZEEN?to=%2Fproducts%2Faion-2 302
