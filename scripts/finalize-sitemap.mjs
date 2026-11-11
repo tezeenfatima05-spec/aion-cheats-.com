@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveProductionSiteUrl } from './site-origin.mjs';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -35,14 +36,15 @@ function formatUrlset(xml) {
     .replace(/<\/priority>/g, '</priority>\n');
 }
 
-let siteOrigin = (process.env.PUBLIC_SITE_URL || 'https://aion-cheats.com').replace(/\/$/, '');
-if (siteOrigin.includes('workers.dev')) {
-  const domain = (process.env.PUBLIC_SITE_DOMAIN || 'aion-cheats.com').trim();
-  siteOrigin = `https://${domain}`;
-}
+const siteOrigin = resolveProductionSiteUrl(process.env);
 
 let formatted = formatUrlset(raw);
 formatted = formatted.replace(/https:\/\/[^<\s]*\.workers\.dev/g, siteOrigin);
+
+if (formatted.includes('workers.dev')) {
+  console.error('finalize-sitemap: sitemap still contains workers.dev URLs — aborting build.');
+  process.exit(1);
+}
 
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');

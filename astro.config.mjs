@@ -2,8 +2,9 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
+import { resolveProductionSiteUrl } from './scripts/site-origin.mjs';
 
-const siteUrl = (process.env.PUBLIC_SITE_URL || 'https://aion-cheats.com').replace(/\/$/, '');
+const siteUrl = resolveProductionSiteUrl(process.env);
 
 export default defineConfig({
   site: siteUrl,

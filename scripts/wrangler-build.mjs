@@ -1,11 +1,6 @@
 import { execSync } from 'node:child_process';
+import { PRODUCTION_DOMAIN, resolveProductionSiteUrl } from './site-origin.mjs';
 
-/** Custom domain is canonical; ignore workers.dev in CI env vars. */
-const PRODUCTION_ORIGIN = 'https://aion-cheats.com';
-const raw = process.env.PUBLIC_SITE_URL?.trim();
-const siteUrl =
-  raw && !raw.includes('workers.dev') ? raw.replace(/\/$/, '') : PRODUCTION_ORIGIN;
-
-process.env.PUBLIC_SITE_URL = siteUrl;
-process.env.PUBLIC_SITE_DOMAIN = process.env.PUBLIC_SITE_DOMAIN?.trim() || 'aion-cheats.com';
+process.env.PUBLIC_SITE_URL = resolveProductionSiteUrl(process.env);
+process.env.PUBLIC_SITE_DOMAIN = process.env.PUBLIC_SITE_DOMAIN?.trim() || PRODUCTION_DOMAIN;
 execSync('npm run build', { stdio: 'inherit', env: process.env, shell: true });
