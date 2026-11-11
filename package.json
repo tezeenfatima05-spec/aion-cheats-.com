@@ -13,7 +13,7 @@
     "astro": "astro",
     "optimize:images": "node scripts/optimize-images.mjs",
     "favicon:aion2": "node scripts/generate-aion2-favicon.mjs",
-    "deploy:cloudflare": "npm run build && wrangler deploy"
+    "deploy:cloudflare": "node scripts/wrangler-deploy.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
