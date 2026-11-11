@@ -35,8 +35,6 @@ npm run deploy:cloudflare
 | Setting | Value |
 | -------- | ----- |
 | Build command | `npm ci && npm run build` |
-| Deploy command | `node scripts/wrangler-deploy.mjs` (runs build via `wrangler.toml`, then deploy) |
+| Deploy command | **`node scripts/ci-publish.mjs`** (not `npx wrangler deploy`) |
 
-Build output directory for **Pages** (if you switch away from Workers): `dist`
-
-**Domain:** This Worker deploys to `*.workers.dev` only. Attach `aion-cheats.com` in the dashboard (Pages or another service), not via `wrangler.toml` routes.
+**`aion-cheats.com`** is published via **Cloudflare Pages** project `aion-cheats-com` (create once, attach custom domain). The Worker is preview-only on `*.workers.dev`.

@@ -1,13 +1,8 @@
-# CI Workers Builds: Deploy command MUST be `npm run deploy` (not bare `npx wrangler deploy`).
-# Must match Cloudflare Workers Builds project name (CI overrides mismatched names).
+# CI: Deploy command = `node scripts/ci-publish.mjs` (not `npx wrangler deploy`).
 name = "aion-cheats--com"
 main = "scripts/worker.mjs"
 compatibility_date = "2024-11-08"
 workers_dev = true
-
-# Runs automatically before `wrangler deploy` (Cloudflare CI often only invokes deploy).
-[build]
-command = "node scripts/wrangler-build.mjs"
 
 [assets]
 directory = "./dist"

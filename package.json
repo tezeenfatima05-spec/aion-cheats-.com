@@ -13,8 +13,8 @@
     "astro": "astro",
     "optimize:images": "node scripts/optimize-images.mjs",
     "favicon:aion2": "node scripts/generate-aion2-favicon.mjs",
-    "deploy": "node scripts/wrangler-deploy.mjs",
-    "deploy:cloudflare": "node scripts/wrangler-deploy.mjs"
+    "deploy": "node scripts/ci-publish.mjs",
+    "deploy:cloudflare": "node scripts/ci-publish.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
