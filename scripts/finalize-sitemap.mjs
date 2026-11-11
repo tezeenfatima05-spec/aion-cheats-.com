@@ -42,10 +42,7 @@ if (siteOrigin.includes('workers.dev')) {
 }
 
 let formatted = formatUrlset(raw);
-const workersHost = 'aion-cheats--com.tazeenrooziroti.workers.dev';
-if (formatted.includes(workersHost)) {
-  formatted = formatted.replaceAll(`https://${workersHost}`, siteOrigin);
-}
+formatted = formatted.replace(/https:\/\/[^<\s]*\.workers\.dev/g, siteOrigin);
 
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
