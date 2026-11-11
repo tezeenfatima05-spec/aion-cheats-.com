@@ -1,3 +1,4 @@
+# CI Workers Builds: Deploy command MUST be `npm run deploy` (not bare `npx wrangler deploy`).
 # Must match Cloudflare Workers Builds project name (CI overrides mismatched names).
 name = "aion-cheats--com"
 main = "scripts/worker.mjs"
