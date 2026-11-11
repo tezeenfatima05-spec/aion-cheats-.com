@@ -10,3 +10,12 @@ command = "node scripts/wrangler-build.mjs"
 directory = "./dist"
 html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"
+
+# Custom domain must match this Worker or aion-cheats.com serves a stale asset bundle.
+[[routes]]
+pattern = "aion-cheats.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.aion-cheats.com"
+custom_domain = true
