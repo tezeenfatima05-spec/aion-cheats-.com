@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /go/
 
-Sitemap: /sitemap.xml
+Sitemap: https://aion-cheats.com/sitemap.xml
