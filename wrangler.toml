@@ -15,13 +15,11 @@ html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"
 run_worker_first = true
 
-# zone_name required when the account uses SSL for SaaS (API error 10082).
+# Zone routes (not custom_domain) — required on accounts with SSL for SaaS (API 10082).
 [[routes]]
-pattern = "aion-cheats.com"
-custom_domain = true
+pattern = "aion-cheats.com/*"
 zone_name = "aion-cheats.com"
 
 [[routes]]
-pattern = "www.aion-cheats.com"
-custom_domain = true
+pattern = "www.aion-cheats.com/*"
 zone_name = "aion-cheats.com"

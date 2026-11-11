@@ -38,3 +38,5 @@ npm run deploy:cloudflare
 | Deploy command | `npx wrangler deploy` (Wrangler runs `npm run build` from `wrangler.toml` first) |
 
 Build output directory for **Pages** (if you switch away from Workers): `dist`
+
+**Custom domain:** `wrangler.toml` attaches `aion-cheats.com/*` via zone routes. If deploy logs show trigger errors, open **Workers → aion-cheats--com → Custom domains** and add `aion-cheats.com`, then purge cache.
