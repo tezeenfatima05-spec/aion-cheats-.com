@@ -1,5 +1,5 @@
-# Cloudflare Workers static assets (output in dist/).
-name = "aion-cheats-com"
+# Must match Cloudflare Workers Builds project name (CI overrides mismatched names).
+name = "aion-cheats--com"
 main = "scripts/worker.mjs"
 compatibility_date = "2024-11-08"
 workers_dev = true
@@ -15,11 +15,13 @@ html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"
 run_worker_first = true
 
-# Custom domain must match this Worker or aion-cheats.com serves a stale asset bundle.
+# zone_name required when the account uses SSL for SaaS (API error 10082).
 [[routes]]
 pattern = "aion-cheats.com"
 custom_domain = true
+zone_name = "aion-cheats.com"
 
 [[routes]]
 pattern = "www.aion-cheats.com"
 custom_domain = true
+zone_name = "aion-cheats.com"
