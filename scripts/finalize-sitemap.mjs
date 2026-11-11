@@ -35,10 +35,20 @@ function formatUrlset(xml) {
     .replace(/<\/priority>/g, '</priority>\n');
 }
 
-const formatted = formatUrlset(raw);
-fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
+let siteOrigin = (process.env.PUBLIC_SITE_URL || 'https://aion-cheats.com').replace(/\/$/, '');
+if (siteOrigin.includes('workers.dev')) {
+  const domain = (process.env.PUBLIC_SITE_DOMAIN || 'aion-cheats.com').trim();
+  siteOrigin = `https://${domain}`;
+}
 
-const siteOrigin = (process.env.PUBLIC_SITE_URL || 'https://aion-cheats.com').replace(/\/$/, '');
+let formatted = formatUrlset(raw);
+const workersHost = 'aion-cheats--com.tazeenrooziroti.workers.dev';
+if (formatted.includes(workersHost)) {
+  formatted = formatted.replaceAll(`https://${workersHost}`, siteOrigin);
+}
+
+fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
+fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -49,7 +59,6 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 </sitemapindex>
 `;
 fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
-fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 
 const robotsTxt = `User-agent: *
 Allow: /
