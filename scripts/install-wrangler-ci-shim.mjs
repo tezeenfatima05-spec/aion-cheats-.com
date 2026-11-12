@@ -28,8 +28,18 @@ if (!fs.existsSync(entry)) {
   process.exit(0);
 }
 
-if (!fs.existsSync(backup)) {
-  fs.renameSync(entry, backup);
+function isCiWrapper(text) {
+  return text.includes('wrangler (CI patch)') || text.includes('CI only');
+}
+
+if (fs.existsSync(entry)) {
+  const text = fs.readFileSync(entry, 'utf8');
+  if (!isCiWrapper(text)) {
+    fs.copyFileSync(entry, backup);
+  }
+} else if (!fs.existsSync(backup)) {
+  console.warn('install-wrangler-ci-shim: no wrangler.js — skip');
+  process.exit(0);
 }
 
 const wrapper = `#!/usr/bin/env node

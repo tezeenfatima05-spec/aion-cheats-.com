@@ -7,6 +7,7 @@ import { existsSync } from 'node:fs';
 import { detachAionCheatsDomains } from './detach-worker-domains.mjs';
 import { deployPagesDist } from './pages-deploy.mjs';
 import { purgeSitemapAndRobots } from './purge-cf-cache.mjs';
+import { wranglerCliPath } from './wrangler-real-path.mjs';
 
 const PAGES_PROJECT = process.env.CLOUDFLARE_PAGES_PROJECT?.trim() || 'aion-cheats-com';
 
@@ -21,11 +22,14 @@ if (!existsSync('dist/index.html')) {
 const deployEnv = { ...process.env, WRANGLER_SKIP_BUILD: '1' };
 
 console.log('wrangler-deploy-cf: uploading Worker assets…');
-const worker = spawnSync('npx wrangler deploy --no-bundle', {
-  stdio: ['inherit', 'pipe', 'pipe'],
-  shell: true,
-  env: deployEnv,
-});
+const worker = spawnSync(
+  process.execPath,
+  [wranglerCliPath(), 'deploy', '--no-bundle'],
+  {
+    stdio: ['inherit', 'pipe', 'pipe'],
+    env: deployEnv,
+  },
+);
 
 const log = `${worker.stdout ?? ''}${worker.stderr ?? ''}`;
 process.stdout.write(worker.stdout ?? '');
@@ -50,10 +54,9 @@ if (err10082) {
 const pages = deployPagesDist();
 
 if (pages.status !== 0) {
-  console.error(
-    `wrangler-deploy-cf: Pages deploy failed. Create Pages project "${PAGES_PROJECT}" and attach aion-cheats.com.`,
+  console.warn(
+    `wrangler-deploy-cf: Pages deploy failed (project "${PAGES_PROJECT}") — Worker upload still applied.`,
   );
-  process.exit(pages.status ?? 1);
 }
 
 await purgeSitemapAndRobots();
