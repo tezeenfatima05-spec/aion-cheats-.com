@@ -85,6 +85,7 @@ if (duplicateCount > 0) {
 }
 
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), urlsetXml, 'utf8');
+fs.writeFileSync(path.join(root, 'public', 'sitemap.xml'), urlsetXml, 'utf8');
 
 const indexPath = path.join(dist, 'sitemap-index.xml');
 if (fs.existsSync(indexPath)) fs.unlinkSync(indexPath);
@@ -100,5 +101,6 @@ Disallow: /go/
 Sitemap: ${PRODUCTION_ORIGIN}/sitemap.xml
 `;
 fs.writeFileSync(path.join(dist, 'robots.txt'), robotsTxt, 'utf8');
+fs.writeFileSync(path.join(root, 'public', 'robots.txt'), robotsTxt, 'utf8');
 
 console.log(`Sitemap finalized: ${urlCount} unique URLs → dist/sitemap.xml (${PRODUCTION_ORIGIN})`);

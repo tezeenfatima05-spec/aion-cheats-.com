@@ -1,5 +1,5 @@
-import { PRODUCTION_ORIGIN } from './site-origin.mjs';
-
+/** Inlined so the Worker bundle never depends on build-time env. */
+const PRODUCTION_ORIGIN = 'https://aion-cheats.com';
 const WORKERS_DEV_HOST = /https:\/\/[^/\s"]+\.workers\.dev/gi;
 
 /** @param {string} pathname */
@@ -18,7 +18,7 @@ async function normalizeSeoResponse(res, contentType) {
     status: res.status,
     headers: {
       'content-type': contentType,
-      'cache-control': 'public, max-age=300, must-revalidate',
+      'cache-control': 'no-cache, no-store, must-revalidate',
     },
   });
 }

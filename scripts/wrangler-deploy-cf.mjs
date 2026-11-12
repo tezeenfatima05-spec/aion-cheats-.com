@@ -6,6 +6,7 @@ import { execSync, spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { detachAionCheatsDomains } from './detach-worker-domains.mjs';
 import { deployPagesDist } from './pages-deploy.mjs';
+import { purgeSitemapAndRobots } from './purge-cf-cache.mjs';
 
 const PAGES_PROJECT = process.env.CLOUDFLARE_PAGES_PROJECT?.trim() || 'aion-cheats-com';
 
@@ -54,5 +55,7 @@ if (pages.status !== 0) {
   );
   process.exit(pages.status ?? 1);
 }
+
+await purgeSitemapAndRobots();
 
 console.log('wrangler-deploy-cf: done — https://aion-cheats.com/sitemap.xml');
