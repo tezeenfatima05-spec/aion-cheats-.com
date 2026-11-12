@@ -1,12 +1,11 @@
 Cloudflare Workers Builds — Settings (required once)
 
-Deploy command — pick ONE (replace npx wrangler deploy):
+Deploy command (recommended):
 
   npm run deploy
 
-  node scripts/wrangler-deploy-cf.mjs
-
-  node scripts/npx-wrangler-deploy.mjs
+If the dashboard still says `npx wrangler deploy`, that is OK after commit with CI shim:
+`postinstall` redirects it to `wrangler-deploy-cf` on Cloudflare builders.
 
 Build command: leave EMPTY (wrangler.toml [build] runs the site build).
 

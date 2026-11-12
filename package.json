@@ -15,7 +15,8 @@
     "favicon:aion2": "node scripts/generate-aion2-favicon.mjs",
     "deploy": "node scripts/wrangler-deploy-cf.mjs",
     "deploy:cloudflare": "node scripts/wrangler-deploy-cf.mjs",
-    "deploy:worker": "node scripts/npx-wrangler-deploy.mjs"
+    "deploy:worker": "node scripts/npx-wrangler-deploy.mjs",
+    "postinstall": "node scripts/install-wrangler-ci-shim.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

@@ -3,6 +3,7 @@ name = "aion-cheats--com"
 main = "scripts/worker.mjs"
 compatibility_date = "2024-11-08"
 workers_dev = true
+preview_urls = false
 
 [build]
 command = "node scripts/wrangler-build.mjs"
