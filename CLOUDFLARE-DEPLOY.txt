@@ -1,0 +1,24 @@
+Cloudflare Workers Builds — Settings (required once)
+
+Deploy command — pick ONE (replace npx wrangler deploy):
+
+  npm run deploy
+
+  node scripts/wrangler-deploy-cf.mjs
+
+  node scripts/npx-wrangler-deploy.mjs
+
+Build command: leave EMPTY (wrangler.toml [build] runs the site build).
+
+Optional: turn OFF "Build output cache" after the first green deploy.
+
+Dashboard (stops error 10082):
+
+  Workers → aion-cheats--com → Custom domains → REMOVE aion-cheats.com and www
+
+  Pages → project aion-cheats-com → ADD custom domain aion-cheats.com
+
+After deploy: purge cache for aion-cheats.com/sitemap.xml (Caching → Purge).
+
+Push latest main to GitHub before retry — logs must show:
+  wrangler-build: ci-publish v3 name=aion-cheats--com

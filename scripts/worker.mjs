@@ -1,5 +1,28 @@
 import { PRODUCTION_ORIGIN } from './site-origin.mjs';
 
+const WORKERS_DEV_HOST = /https:\/\/[^/\s"]+\.workers\.dev/gi;
+
+/** @param {string} pathname */
+function isSeoAsset(pathname) {
+  const p = pathname.replace(/\/$/, '') || '/';
+  return p === '/sitemap.xml' || p === '/robots.txt';
+}
+
+/** @param {Response} res */
+async function normalizeSeoResponse(res, contentType) {
+  let body = await res.text();
+  if (body.includes('workers.dev')) {
+    body = body.replace(WORKERS_DEV_HOST, PRODUCTION_ORIGIN);
+  }
+  return new Response(body, {
+    status: res.status,
+    headers: {
+      'content-type': contentType,
+      'cache-control': 'public, max-age=300, must-revalidate',
+    },
+  });
+}
+
 /**
  * Preview hostnames should not be indexed; send crawlers to the custom domain.
  * Static HTML/XML is served from the ASSETS binding for aion-cheats.com.
@@ -11,6 +34,14 @@ export default {
       const target = new URL(`${url.pathname}${url.search}`, PRODUCTION_ORIGIN);
       return Response.redirect(target.href, 301);
     }
-    return env.ASSETS.fetch(request);
+
+    const res = await env.ASSETS.fetch(request);
+    if (!isSeoAsset(url.pathname) || !res.ok) return res;
+
+    const type =
+      url.pathname.includes('robots')
+        ? 'text/plain; charset=utf-8'
+        : res.headers.get('content-type') || 'application/xml; charset=utf-8';
+    return normalizeSeoResponse(res, type);
   },
 };

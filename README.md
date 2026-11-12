@@ -35,6 +35,6 @@ npm run deploy:cloudflare
 | Setting | Value |
 | -------- | ----- |
 | Build command | `npm ci && npm run build` |
-| Deploy command | **`node scripts/ci-publish.mjs`** (not `npx wrangler deploy`) |
+| Deploy command | **`node scripts/wrangler-deploy-cf.mjs`** or **`npm run deploy`** (not `npx wrangler deploy`) |
 
 **`aion-cheats.com`** is published via **Cloudflare Pages** project `aion-cheats-com` (create once, attach custom domain). The Worker is preview-only on `*.workers.dev`.
